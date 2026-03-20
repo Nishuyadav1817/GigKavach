@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const api = axios.create({ baseURL: "http://127.0.0.1:8000" });
+const api = axios.create({ baseURL: "http://localhost:16016" });
 
 // Attach JWT token to every request
 api.interceptors.request.use(cfg => {
@@ -17,11 +17,11 @@ api.interceptors.response.use(r => r, err => {
   }
   return Promise.reject(err);
 });
-
+console.log("here");
 export const authAPI = {
-  login: (data) => api.post("/auth/login", data),
-  register: (data) => api.post("/auth/register", data),
-  me: () => api.get("/auth/me"),
+  login: (data) => api.post("/worker/login", data),
+  register: (data) => api.post("/worker/register", data),
+  me: () => api.get("/worker/profile"),
   createAdmin: (data) => api.post("/auth/create-admin", data),
 };
 
