@@ -2,7 +2,6 @@ const express = require("express");
 const App = express();
 
 require("dotenv").config();
-
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 
@@ -36,8 +35,17 @@ const corsOptions = {
 // Apply CORS
 App.use(cors(corsOptions));
 
-// Handle Preflight Requests
-App.options("*", cors(corsOptions));
+// ✅ Replace App.options("*", ...) with route-safe middleware
+App.use((req, res, next) => {
+  if (req.method === "OPTIONS") {
+    res.header("Access-Control-Allow-Origin", req.headers.origin || "");
+    res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+    res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+    res.header("Access-Control-Allow-Credentials", "true");
+    return res.sendStatus(200);
+  }
+  next();
+});
 
 // Connect Database
 DataBase();
@@ -50,5 +58,5 @@ App.get("/", (req, res) => {
   res.send("Gig Kavach API Running");
 });
 
-// Export App (Vercel serverless)
+// Export App for Vercel
 module.exports = App;
