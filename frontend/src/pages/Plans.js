@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
-import { createPaymentOrder, verifyPayment } from "../api/api";
+import { createPaymentOrder, verifyPayment } from "../services/api";
 import "../styles/global.css";
 
 const PLANS = [

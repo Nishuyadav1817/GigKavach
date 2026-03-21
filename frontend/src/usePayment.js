@@ -5,7 +5,7 @@
 //   await startPayment({ amount: 49900, plan: "basic", workerName, workerEmail });
 
 import { useState } from "react";
-import { createOrder, verifyPayment } from "../api/api";
+import { createOrder, verifyPayment } from "./services/api";
 import { useAuth } from "../context/AuthContext";
 
 const loadRazorpayScript = () =>

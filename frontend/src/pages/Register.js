@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { registerWorker } from "../api/api";
+import { registerWorker } from "../services/api";
 import { useAuth } from "../context/AuthContext";
 import "../styles/global.css";
 
