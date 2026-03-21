@@ -14,7 +14,8 @@ App.use(cookieParser());
 
 const allowedOrigins = [
   "https://gig-bima.vercel.app",
-  "http://localhost:3000"
+  "http://localhost:3000",
+  "http://localhost:1234"
 ];
 
 App.use(cors({

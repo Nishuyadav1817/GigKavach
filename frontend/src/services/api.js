@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const api = axios.create({ baseURL: "http://localhost:16016" });
+const api = axios.create({ baseURL: "https://gig-kavach-7d65.vercel.app" });
 
 // Attach JWT token to every request
 api.interceptors.request.use(cfg => {
