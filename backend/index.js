@@ -13,7 +13,7 @@ App.use(express.json());
 App.use(cookieParser());
 
 const allowedOrigins = [
-  "https://gig-bima.vercel.app",
+  "https://gig-kavach-psi.vercel.app",
   "http://localhost:3000",
   "http://localhost:1234"
 ];
